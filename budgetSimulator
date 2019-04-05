@@ -1,0 +1,222 @@
+import java.util.Scanner;
+import java.text.*;
+
+public class budgetSimulator {
+
+//initial starting values
+   public static void main(String[] args) {
+      Scanner kb = new Scanner(System.in);
+      Scanner list = new Scanner(System.in);
+      Scanner net = new Scanner(System.in);
+      double salary = 0;
+      double assets = 0;
+      double totalEarning = 0;
+      double mortgage = 0;
+      double insurance = 0;
+      double otherPayments = 0;
+      double totalSpending = 0;
+      double bankMoney = 0;
+      double emergencyMoney = 0;
+      double vacationMoney = 0;
+      double totalSavings = 0;
+      double netSales;
+      double debtRatio;
+      double aTurnover;
+      double[] assetList = new double[4];
+      double totalAsset;
+      double totalLiability;
+      double equity;
+      double deRatio;
+      int choice = 0;
+      //starting user entered inputs to define what their values will be as the program continues
+      System.out.println("Please enter your yearly salary.");
+      while (!kb.hasNextDouble()) {
+         try { 
+            salary = Double.parseDouble(kb.next()); //takes next input, parsed as a double
+            break; //will end the loop if input is a double
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter your yearly salary.");
+         }
+      }
+      salary = kb.nextDouble();
+   	
+      System.out.println("Do you have any assets? If so, please mention their total value.");
+      while (!kb.hasNextDouble()) {
+         try { 
+            assets = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter your assets.");
+         }
+      }
+      assets = kb.nextDouble();
+   
+      System.out.println("Enter how much you have to pay for mortgage: ");
+      while (!kb.hasNextDouble()) {
+         try { 
+            mortgage = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter your mortgage.");
+         }
+      }
+      mortgage = kb.nextDouble();
+   
+      System.out.println("Enter how much you pay for insurance: ");
+      while (!kb.hasNextDouble()) {
+         try { 
+            insurance = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter your insurance.");
+         }
+      }
+      insurance = kb.nextDouble();
+      
+      System.out.println("Enter how much you pay for other bills ");
+      while (!kb.hasNextDouble()) {
+         try { 
+            otherPayments = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter how much you pay for other bills");
+         }
+      }
+      otherPayments = kb.nextDouble();
+   
+      System.out.println("How much money do you have in the bank? ");
+      while (!kb.hasNextDouble()) {
+         try { 
+            bankMoney = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter how much money you have in the bank.");
+         }
+      }
+      bankMoney = kb.nextDouble();
+   
+      System.out.println("How much money do you want to use for vacation:");
+      while (!kb.hasNextDouble()) {
+         try { 
+            vacationMoney = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter how much you plan to use for liesure.");
+         }
+      }
+      vacationMoney = kb.nextDouble();
+   
+      System.out.println("Enter how much money you plan to keep aside for emergencies.");
+      while (!kb.hasNextDouble()) {
+         try { 
+            emergencyMoney = Double.parseDouble(kb.next()); 
+            break; 
+         }
+         catch (NumberFormatException nan) {
+            System.out.println("Invalid. Please enter how much you plan to keep for emergencies.");
+         }
+      }
+      //earning assets and liability calculations
+      emergencyMoney = kb.nextDouble();
+   
+      totalEarning = salary + assets + bankMoney;
+      
+      totalAsset = assets + mortgage;
+      
+      totalLiability = otherPayments + vacationMoney + insurance;
+   
+      System.out.println("The total amount earned this year: $" + totalEarning);
+   
+      totalSpending = otherPayments  + vacationMoney + mortgage;
+   
+      System.out.println("The total amount spent this year was $" + totalSpending);
+   
+      totalSavings = bankMoney + emergencyMoney;
+   
+      System.out.println("The total amount saved this year was $" + totalSavings);
+      
+      
+      
+      Calculations userInputs = new Calculations(totalEarning, totalSpending);
+      
+      //print statements for menu choices
+      //  System.out.println("MAIN MENU");
+     // System.out.println("1: Debt Ratio");
+     // System.out.println("2: Asset Turnover");
+     // System.out.println("3: Equity");
+     // System.out.println("4: Exit");
+
+      
+      //while loop to accept user choice
+      while(choice != 4) {
+        System.out.println(" ");
+        System.out.println("MAIN MENU");
+        System.out.println("1: Debt Ratio");
+        System.out.println("2: Asset Turnover");
+        System.out.println("3: Equity");
+        System.out.println("4: Exit");
+        System.out.println(" ");
+
+         System.out.println("Input a number in the menu as a choice.");
+         while (!kb.hasNextInt()) {
+            try { 
+               choice = Integer.parseInt(kb.next()); 
+               break; 
+            }
+            catch (NumberFormatException nan) {
+               System.out.println("Invalid. Please enter a number from the menu: ");
+            }
+      }
+      choice = kb.nextInt();
+      if (choice == 1) {
+         debtRatio = userInputs.getLiability() / userInputs.getAsset();
+         DecimalFormat bf = new DecimalFormat("#.##");
+         System.out.println("Your debt ratio is: " + bf.format(debtRatio) + "%");
+         }
+      else if (choice == 2) {
+         System.out.println("Please enter your asset $ values from the past 5 years(separated by a single-space: ");
+         for (int i = 0; i < assetList.length; i++) {
+               assetList[i] = Double.parseDouble(list.next()); 
+               System.out.println(assetList[i]);
+               }
+
+         System.out.println("Please enter your net sales revenue. ");
+         while (!net.hasNextDouble()) {
+            try { 
+               netSales = Double.parseDouble(net.next()); 
+               break; 
+               }
+            catch (NumberFormatException nan) {
+               System.out.println("Invalid. Please enter your net sales revenue: ");
+               }
+            }
+         netSales = net.nextDouble();
+         aTurnover = userInputs.assetTurnover(netSales, assetList);
+         DecimalFormat df = new DecimalFormat("#.##");
+         System.out.println("Your asset turnover is: " + df.format(aTurnover) + "$");
+         }
+      else if (choice == 3) {
+      DecimalFormat cf = new DecimalFormat("#.##");
+         equity = userInputs.Equity(totalAsset, totalLiability);
+         System.out.println("Your equity is: " + equity + "$");
+         deRatio = userInputs.debtEquity(equity, totalLiability);
+         System.out.println("Your Debt/Equity Ratio is: " + cf.format(deRatio) + "%");
+         }
+      else if (choice == 4) {
+         break;
+         }
+      else {
+        System.out.println("Input a number in the menu as a choice."); 
+         }
+      }
+   }
+   
+}
+
