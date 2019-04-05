@@ -1,0 +1,57 @@
+import java.util.Scanner;
+//calculations class to calculate the variables
+public class Calculations {
+   private double asset;
+   private double liability;
+   private double aTurnover;
+   private double averageAssets;
+   private double[] assetList = new double[4]; //4 length long array
+   public  Calculations() {
+   //defining variables
+      this.asset = 1.0;
+      this.liability = 1.0;
+      }
+   
+   public Calculations(double newAsset, double newLiability) {
+      this.asset = newAsset;
+      this.liability = newLiability;
+      }
+   
+   public double getDebtRatio(double asset, double liability) {
+      return asset / liability;
+      }
+      
+   void setAsset(double newAsset) {
+      this.asset = newAsset;
+      }
+   
+   void setLiability(double newLiability) {
+      this.liability = newLiability;
+      }
+      
+   double getAsset() {
+      return asset;
+      }
+      
+   double getLiability() {
+      return liability;
+      }
+      //calculations for assests
+   private double averageAsset(double[] assetList) {
+      for (int i = 0; i < assetList.length; i++) {
+         averageAssets += assetList[i];
+         }
+      averageAssets = averageAssets / 5.0;
+      return averageAssets;
+      }
+      //calculations for turnover and equitity
+   public double assetTurnover(double netSales, double[] assetList) {
+       return netSales / averageAsset(assetList);
+      }
+   public double Equity(double totalAssets, double totalLiability) {
+      return (asset + totalAssets) - (liability + totalLiability);
+      }
+   public double debtEquity(double equity, double totalLiability) {
+      return (liability + totalLiability) / equity;
+      }
+} 
