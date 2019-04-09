@@ -1,0 +1,84 @@
+import java.util.Scanner;
+import java.text.*;
+
+public class CandyShop {
+
+//initial starting values
+   public static void main(String[] args) {
+      Scanner input = new Scanner(System.in);
+      double jolley = 0;
+      double mm = 0;
+      double taffy = 0;
+      double jolleytotal = 0;
+      double mmtotal = 0;
+      double taffytotal = 0;
+      double endtotal = 0;
+      int choice = 0;
+
+
+      
+      //while loop to accept user choice
+      while(choice != 4) {
+        System.out.println(" ");
+        System.out.println("Welcome to Group D's Candy shop!");
+        System.out.println("Choose what you would like to order from the menu");
+        System.out.println("0: Jolley Ranchers");
+        System.out.println("1: M&M's");
+        System.out.println("2: Taffy");
+        System.out.println("3: Final Total");
+        System.out.println("4: Exit");
+        System.out.println(" ");
+
+         System.out.println("Input a number in the menu as a choice.");
+         while (!input.hasNextInt()) {
+            try { 
+               choice = Integer.parseInt(input.next()); 
+               break; 
+            }
+            catch (NumberFormatException nan) {
+               System.out.println("Invalid. Please enter a number from the menu: ");
+            }
+      }
+      choice = input.nextInt();
+      if (choice == 0) {
+              System.out.println("It will cost $2 for a half pound of jolley ranchers");
+              System.out.println("How many half pounds of jolley ranchers would you like to order?");
+              jolley = input.nextDouble();
+              jolleytotal = (jolley * 2);
+              System.out.println("You are now ordering $" + jolleytotal + "'s of jolley ranchers.");
+              System.out.println("If you would like to finish shopping press 3 or if you would like to exit press 4");
+         }
+      else if (choice == 1) {
+        System.out.println("It will cost $2.15 for a half pound of m&m's");
+              System.out.println("How many half pounds of jolley ranchers would you like to order?");
+              mm = input.nextDouble();
+              mmtotal = (mm * 2.15);
+              System.out.println("You are now ordering " + mmtotal + " of m&ms");
+              System.out.println("If you would like to finish shopping press 3 or if you would like to exit press 4");
+
+         }
+      else if (choice == 2) {
+      System.out.println("It will cost 2.10$ for a half pound of taffy");
+              System.out.println("How many half pounds of taffy would you like to order?");
+              taffy = input.nextDouble();
+              System.out.println("You are now ordering " + taffytotal + " of taffy.");
+              System.out.println("If you would like to finish shopping press 3 or if you would like to exit press 4");
+
+         }
+          else if (choice == 3) {
+          endtotal = (jolleytotal + taffytotal + mmtotal);
+      System.out.println("Your final total will be $" + endtotal);
+      System.out.println("If you would like to exit please press 4, otherwise continue shopping");
+         }
+
+      else if (choice == 4) {
+         break;
+         }
+      else {
+        System.out.println("Input a number in the menu as a choice."); 
+         }
+      }
+   }
+   
+}
+
