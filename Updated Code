@@ -1,0 +1,224 @@
+import java.util.Scanner;
+import java.text.*;
+
+public class CandyShop {
+
+//initial starting values
+   public static void main(String[] args) {
+      Scanner input = new Scanner(System.in);
+      double jolley = 0;
+      double ls = 0;
+      double mm = 0;
+      double kk = 0;
+      double hb = 0;
+      double hk = 0;
+      double sb = 0;
+      double twix = 0;
+      double taffy = 0;
+      double jolleyTotal = 0;
+      double lsTotal = 0;
+      double mmTotal = 0;
+      double kkTotal = 0;
+      double hbTotal = 0;
+      double hkTotal = 0;
+      double sbTotal = 0;
+      double twixTotal = 0;
+      double taffyTotal = 0;
+      double chocolateTotal = 0;
+      double hardCandyTotal = 0;
+      double endTotal = 0;
+      int choice = 0;
+      int choiceA = 0;
+      int choiceB = 0;
+   
+   
+      
+      //while loop to accept user choice
+      while(choice != 4) {
+         System.out.println(" ");
+         System.out.println("Welcome to Group D's Candy shop!");
+         System.out.println("Choose what you would like to order from the menu");
+         System.out.println("0: Chocolate");
+         System.out.println("1: Hard Candy");
+         System.out.println("2: Taffy");
+         System.out.println("3: Final Total");
+         System.out.println("4: Exit");
+         System.out.println(" ");
+      
+         System.out.println("Input a number in the menu as a choice.");
+         while (!input.hasNextInt()) {
+            try { 
+               choice = Integer.parseInt(input.next()); 
+               break; 
+            }
+            catch (NumberFormatException nan) {
+               System.out.println("Invalid. Please enter a number from the menu: ");
+            }
+         }
+         choice = input.nextInt();
+         if (choice == 0) {
+            while(choiceA != 7) {
+               System.out.println(" ");
+               System.out.println("Choose the type of chocolate you would like to order");
+               System.out.println("0: M&M's");
+               System.out.println("1: KitKat");
+               System.out.println("2: Hershey Bar");
+               System.out.println("3: Hershey Kisses");
+               System.out.println("4: Snickers");
+               System.out.println("5: Twix");
+               System.out.println("6: Final Chocolate total");
+               System.out.println("7: Exit");
+               System.out.println(" ");
+            
+               System.out.println("Input a number in the menu as a choice.");
+               while (!input.hasNextInt()) {
+                  try { 
+                     choiceA = Integer.parseInt(input.next()); 
+                     break; 
+                  }
+                  catch (NumberFormatException nan) {
+                     System.out.println("Invalid. Please enter a number from the menu: ");
+                  }
+               }
+               choiceA = input.nextInt();
+               if (choiceA == 0) {
+                  System.out.println("It will cost $2.15 for a half pound of m&m's");
+                  System.out.println("You currently have $" + mmTotal + " worth of M&M's");
+                  System.out.println("How many half pounds of jolley ranchers would you like to order?");
+                  mm = input.nextDouble();
+                  mmTotal = (mm * 2.15);
+                  System.out.println("You are now ordering $" + mmTotal + " of m&ms");
+               }
+               else if (choiceA == 1) {
+                  System.out.println("It will cost $.89 for a kitkat bar.");
+                  System.out.println("You currently have $" + kkTotal + " worth of KitKats's");
+                  System.out.println("How many kitkat bars would you like to order?");
+                  kk = input.nextDouble();
+                  kkTotal = (kk * .89);
+                  System.out.println("You are now ordering $" + kkTotal + " of kitkats");
+               }
+               else if (choiceA == 2) {
+                  System.out.println("It will cost $.89 for a hershey bar");
+                  System.out.println("You currently have $" + hbTotal + " worth of Hershey Bars");
+                  System.out.println("How many hershey bars would you like to order?");
+                  hb = input.nextDouble();
+                  hbTotal = (hb * .89);
+                  System.out.println("You are now ordering $" + hbTotal + " of Hershey Bars");
+               }
+               else if (choiceA == 3) {
+                  System.out.println("It will cost $2.12 for a half pound of Hershey's Kisses");
+                  System.out.println("You currently have $" + hkTotal + " worth of Hershey Kisses");
+                  System.out.println("How many half pounds of Hershey's Kisses would you like to order?");
+                  hk = input.nextDouble();
+                  hkTotal = (hk * 2.12);
+                  System.out.println("You are now ordering $" + hkTotal + " of Hershey's Kisses");
+               } 
+               else if (choiceA == 4) {
+                  System.out.println("It will cost $.89 for a snickers bar");
+                  System.out.println("You currently have $" + sbTotal + " worth of Snickers");
+                  System.out.println("How many snickers bars would you like to order?");
+                  sb = input.nextDouble();
+                  sbTotal = (sb * .89);
+                  System.out.println("You are now ordering $" + sbTotal + " worth of Snickers");
+               }
+               else if (choiceA == 5) {
+                  System.out.println("It will cost $.89 for a Twix Bar");
+                  System.out.println("You currently have $" + twixTotal + " worth of Twix Bars");
+                  System.out.println("How many half pounds of jolley ranchers would you like to order?");
+                  twix = input.nextDouble();
+                  twixTotal = (twix * .89);
+                  System.out.println("You are now ordering $" + twixTotal + " worth of Twix's");
+               }
+               else if (choiceA == 6) {
+                  chocolateTotal = (mmTotal + kkTotal + hbTotal + hkTotal + sbTotal + twixTotal);
+                  System.out.println("Your final total for chocolate is " + chocolateTotal);
+                  System.out.println("If you would like to go back to the main menu please press 7, thank you.");
+               
+               }
+               else if (choiceA == 7) {
+                  break;
+               }
+               else {
+                  System.out.println("Input a number in the menu as a choice."); 
+               }
+            
+            
+            }
+         }
+         
+         else if (choice == 1) {
+            while(choiceB != 3) {
+               System.out.println(" ");
+               System.out.println("Choose the type of Hard Candy you would like to order");
+               System.out.println("0: Jolley Ranchers");
+               System.out.println("1: Life Savers");
+               System.out.println("2: Hard Candy Total");
+               System.out.println("3: Exit");
+               System.out.println(" ");
+            
+               System.out.println("Input a number in the menu as a choice.");
+               while (!input.hasNextInt()) {
+                  try { 
+                     choiceB= Integer.parseInt(input.next()); 
+                     break; 
+                  }
+                  catch (NumberFormatException nan) {
+                     System.out.println("Invalid. Please enter a number from the menu: ");
+                  }
+               }
+               choiceB = input.nextInt();
+               if (choiceB == 0) {
+                  System.out.println("It will cost $2 for a half pound of Jolley Ranchers");
+                  System.out.println("You currently have $" + jolleyTotal + " worth of Jolley Ranchers");
+                  System.out.println("How many half pounds of jolley ranchers would you like to order?");
+                  jolley = input.nextDouble();
+                  jolleyTotal = (jolley * 2);
+                  System.out.println("You are now ordering $" + jolleyTotal + " of jolley ranchers.");
+               }
+               else if (choiceB == 1) {
+                  System.out.println("It will cost $1.29 for a half pound of lifesavers.");
+                  System.out.println("You currently have $" + lsTotal + " worth of LifeSavers");
+                  System.out.println("How many half pounds of lifesavers would you like to order?");
+                  ls = input.nextDouble();
+                  lsTotal = (kk * 1.29);
+                  System.out.println("You are now ordering $" + lsTotal + " of lifesavers");
+               }
+               else if (choiceB == 2) {
+                  hardCandyTotal = (jolleyTotal + lsTotal);
+                  System.out.println("Your final total for chocolate is " + hardCandyTotal);
+                  System.out.println("If you would like to go back to the main menu please press 7, thank you.");
+               }
+               else if (choiceB == 3) {
+                  break;
+               }
+               else {
+                  System.out.println("Input a number in the menu as a choice."); 
+               }
+            }
+         }
+         else if (choice == 2) {
+            System.out.println("It will cost 2.10$ for a half pound of taffy");
+            System.out.println("How many half pounds of taffy would you like to order?");
+            taffy = input.nextDouble();
+            System.out.println("You are now ordering " + taffyTotal + " of taffy.");
+            System.out.println("If you would like to finish shopping press 3 or if you would like to exit press 4");
+         
+         }
+         else if (choice == 3) {
+            endTotal = (chocolateTotal + hardCandyTotal + taffyTotal);
+            System.out.println("Your final total will be $" + endTotal);
+            System.out.println("If you would like to exit please press 4, otherwise continue shopping");
+         }
+         
+         
+         
+         else if (choice == 4) {
+            break;
+         }
+         else {
+            System.out.println("Input a number in the menu as a choice."); 
+         }
+      }
+   }
+   
+}
